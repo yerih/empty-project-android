@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "empty_project"
 include ':app'
+include ':domain'
+include ':data'
+include ':usecases'

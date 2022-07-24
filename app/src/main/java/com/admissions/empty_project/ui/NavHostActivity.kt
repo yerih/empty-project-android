@@ -1,4 +1,4 @@
-package com.admissions.empty_project.data.ui
+package com.admissions.empty_project.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

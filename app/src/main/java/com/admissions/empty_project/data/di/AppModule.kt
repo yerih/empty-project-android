@@ -1,13 +1,11 @@
 package com.admissions.empty_project.data.di
 
 import android.app.Application
-import com.admissions.data.repository.AnyRepository
-import com.admissions.data.source.AnyRemoteDataSource
 import com.admissions.data.source.LocalDataSource
 import com.admissions.empty_project.data.database.dao.AnyDao
 import com.admissions.empty_project.data.database.db.NameAppDataBase
 import com.admissions.empty_project.data.database.db.RoomDataBase
-import com.admissions.empty_project.data.server.AnyDataSource
+import com.admissions.empty_project.data.server.AnyNetworkDataSource
 import com.admissions.empty_project.data.server.RetrofitSettings
 import dagger.Module
 import dagger.Provides
@@ -30,11 +28,12 @@ class AppModule {
     fun okHTTPClientProvider(): OkHttpClient = RetrofitSettings.okHttpClient
 
     @Provides
+    fun anyRemoteDataSourceProvider() = AnyNetworkDataSource()
+
+    @Provides
     fun anyDaoProvider(db: NameAppDataBase) = db.anyDao()
 
     @Provides
     fun localDataSource(anyDao: AnyDao): LocalDataSource = RoomDataBase(anyDao)
 
-    @Provides
-    fun anyRemoteDataSourceProvider() = AnyDataSource()
 }

@@ -7,6 +7,6 @@ class AnyRepository(
     private val anyRemoteDataSource: AnyRemoteDataSource,
     private val localDataSource: LocalDataSource
 ){
-    suspend fun anyRemote(): Unit = anyRemoteDataSource.remoteMethod()
+//    suspend fun anyRemote(): Unit = anyRemoteDataSource.remoteMethod()
     suspend fun anyDB(): Unit = localDataSource.method()
 }
